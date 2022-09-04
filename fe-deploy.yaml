@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  selector:
+    matchLabels:
+      app: app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
+      containers:
+      - name: wordpress
+        image: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app   ## Corresponde al nombre asignado en el configmap
+              key: MYSQL_HOST
+        - name: WORDPRESS_DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: app
+              key: MYSQL_USER
+        - name: WORDPRESS_DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: app
+              key: MYSQL_DATABASE
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app   ## Corresponde al nombre asignado en el secret
+              key: MYSQL_PASSWORD
+        ports:
+        - containerPort:  80
+        volumeMounts:
+        - name: app
+          mountPath: /var/www/html
+      volumes:
+        - name: app
+          persistentVolumeClaim:
+            claimName: app
+      # restartPolicy: Always
