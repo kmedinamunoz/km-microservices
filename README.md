@@ -1,9 +1,12 @@
 # Kubernetes Microservices Application
 Repository for and app (Wordpress + MySQL) with microservices on Kubernetes.
 
+
+
 ## Prerequisites
 1. You have Docker installed on your local machine.
 2. You have Kubernetes installed on your local machine or via Docker.
+
 
 
 ## Setup Steps
@@ -12,6 +15,7 @@ Repository for and app (Wordpress + MySQL) with microservices on Kubernetes.
 '''sh
 kubectl create -f 
 '''
+
 
 
 ## How to access the application?
@@ -29,6 +33,8 @@ Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 Handling connection for 8080
 '''
+
+
 
 
 ## Notes:
