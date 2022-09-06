@@ -1,0 +1,32 @@
+kind: Node
+apiVersion: v1
+metadata:
+  name: node
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 100%
+  selector:
+    matchLabels:
+      app: node
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      affinity:
+        # NOT SURE but I think this ensures pods will land on separate hosts
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions: [{ key: app, operator: In, values: [node] }]
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: containername
+        image: image:latest
+        ports:
+          - name: http
+            containerPort: 80
+      terminationGracePeriodSeconds: 1
