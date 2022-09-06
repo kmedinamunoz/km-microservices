@@ -13,7 +13,7 @@ Repository for creation a frontend and a backend microservice on Kubernetes.
 1. Clone this repo.
 2. In the new project folder, run the following command:
 ```sh
-kubectl create -f 
+kubectl create -f .
 ```
 
 
@@ -28,7 +28,7 @@ kubectl get svc
 kubectl port-forward deployment/[deploment_name] 8080:80
 ```
 3. The output is similar to this:
-```ssh
+```
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 Handling connection for 8080
