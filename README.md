@@ -1,5 +1,5 @@
 # Kubernetes Microservices Application
-Repository for and app (Wordpress + MySQL) with microservices on Kubernetes.
+Repository for creation a frontend and a backend microservice on Kubernetes.
 
 
 
