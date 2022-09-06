@@ -19,7 +19,7 @@ kubectl create -f .
 
 
 ## How to access the application?
-1. Check the Port created by executing the command:
+1. Check the Port created by executing this command:
 ```sh
 kubectl get svc
 ```
