@@ -12,27 +12,27 @@ Repository for creation a frontend and a backend microservice on Kubernetes.
 ## Setup Steps
 1. Clone this repo.
 2. In the new project folder, run the following command:
-'''sh
+```sh
 kubectl create -f 
-'''
+```
 
 
 
 ## How to access the application?
 1. Check the Port created by executing the command:
-'''sh
+```sh
 kubectl get svc
-'''
+```
 2. Use port forwarding to access the application in the Cluster IP:
-'''sh
+```sh
 kubectl port-forward deployment/[deploment_name] 8080:80
-'''
+```
 3. The output is similar to this:
-'''
+```ssh
 Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 Handling connection for 8080
-'''
+```
 
 
 
