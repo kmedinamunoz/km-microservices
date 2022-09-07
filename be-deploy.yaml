@@ -19,7 +19,7 @@ spec:
           # - Each init container must complete successfully before the next one starts.
       containers:
       - name: mysql
-        image:  mysql:latest
+        image:  mysql:5.7
         env:
         - name: MYSQL_DATABASE
           valueFrom:
