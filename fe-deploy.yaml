@@ -51,4 +51,4 @@ spec:
         - name: app
           persistentVolumeClaim:
             claimName: app
-      # restartPolicy: Always
+  imagePullPolicy: Never
